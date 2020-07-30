@@ -1,6 +1,8 @@
 {
   "extends": "tslint:recommended",
   "rules": {
+    "object-literal-shorthand": false,
+    "no-string-literal": false,
     "align": {
       "options": [
         "parameters",
@@ -95,7 +97,7 @@
       }
     },
     "typedef": [
-      true,
+      false,
       "call-signature"
     ],
     "typedef-whitespace": {
