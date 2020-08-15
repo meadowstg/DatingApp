@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DatingApp.API.Migrations
@@ -21,13 +22,15 @@ namespace DatingApp.API.Migrations
                 name: "Created",
                 table: "Users",
                 nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                type: "datetime2",
+                defaultValueSql: "current_timestamp");
 
             migrationBuilder.AddColumn<DateTime>(
                 name: "DateOfBirth",
                 table: "Users",
                 nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                type: "datetime2",
+                defaultValueSql: "current_timestamp");
 
             migrationBuilder.AddColumn<string>(
                 name: "Gender",
@@ -53,7 +56,8 @@ namespace DatingApp.API.Migrations
                 name: "LastActive",
                 table: "Users",
                 nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                type: "datetime2",
+                defaultValueSql: "current_timestamp");
 
             migrationBuilder.AddColumn<string>(
                 name: "LookingFor",
@@ -65,6 +69,7 @@ namespace DatingApp.API.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn)
                         .Annotation("Sqlite:Autoincrement", true),
                     Url = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
